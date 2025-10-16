@@ -2,9 +2,9 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
     Name = "Unbeatable's Haxx",
     Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
-    LoadingTitle = "Bro idk tbh",
+    LoadingTitle = "loading hacks duh",
     LoadingSubtitle = "by unbeatable",
-    Theme = "Ocean", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+    Theme = "DarkBlue", -- Check https://docs.sirius.menu/rayfield/configuration/themes
     DisableRayfieldPrompts = false,
     DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
     ConfigurationSaving = {
@@ -19,16 +19,16 @@ local Window = Rayfield:CreateWindow({
     },
     KeySystem = true, -- Set this to true to use our key system
     KeySettings = {
-       Title = "Untitled",
+       Title = "Unbeatable's key system",
        Subtitle = "Key System",
        Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
        FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
        SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
        GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-       Key = {"nicoluastorres"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+       Key = {"tZ2sozp7aMSha7z!"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
     }
  })
- local Tab = Window:CreateTab("Other Scripts", 4483362458) -- Title, Image
+ local Tab = Window:CreateTab("FUCKING SCRIPTS LIKE SHIT", 4483362458) -- Title, Image
  local Button = Tab:CreateButton({
     Name = "Infinite Yield",
     Callback = function()
@@ -606,15 +606,190 @@ local Button = Tab:CreateButton({
       loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
    end,
 })
+
 local Button = Tab:CreateButton({
-   Name = "KAT SCRIPT",
+   Name = "Death Penalty",
    Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/scripter1cursed1rade/BelugaWare-1.4/main/belugaware.lua"))() 
+      loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe/main/obf_rf6iQURzu1fqrytcnLBAvW34C9N55kS9g9G3CKz086rC47M6632sEd4ZZYB0AYgV.lua.txt'),true))()
    end,
 })
 local Button = Tab:CreateButton({
-   Name = "Bubble Gum Simulator Infinity",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/MIKEDRIPZOWSKU/test/refs/heads/main/SmorgsHubBGSI.lua", true))()
+    Name = "Spelling Bee",
+    Callback = function()
+        spellingbee = loadstring(game:HttpGet("https://raw.githubusercontent.com/PreppyHub/PreppyHub/refs/heads/main/PreppyHub"))()
+    end,
+})
+local Button = Tab:CreateButton({
+    Name = "Hoops",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/timothytuffknuckles/Blessed/refs/heads/main/autosave.luau"))()
+    end,
+})
+local Tab1 = Window:CreateTab("PLAYER SHIT", 4483362458) -- Title, Image
+local Slider = Tab1:CreateSlider({
+   Name = "Walkspeed",
+   Range = {0, 500},
+   Increment = 16,
+   Suffix = "speed",  -- Note: This suffix might not make sense for speed; change to something like "Studs/s" if needed
+   CurrentValue = 16,
+   Flag = "Slider1",
+   Callback = function(Value)
+      -- Get the local player and their character
+      local player = game.Players.LocalPlayer
+      if player and player.Character and player.Character:FindFirstChild("Humanoid") then
+         player.Character.Humanoid.WalkSpeed = Value
+      end
    end,
 })
+local Slider = Tab1:CreateSlider({
+   Name = "Jumppower",
+   Range = {0, 500},
+   Increment = 50,
+   Suffix = "jump",  -- Note: This suffix might not make sense for speed; change to something like "Studs/s" if needed
+   CurrentValue = 50,
+   Flag = "Slider1",
+   Callback = function(Value)
+      -- Get the local player and their character
+      local player = game.Players.LocalPlayer
+      if player and player.Character and player.Character:FindFirstChild("Humanoid") then
+         player.Character.Humanoid.JumpPower = Value
+      end
+   end,
+})
+local SizeSlider = Tab1:CreateSlider({
+   Name = "Player Size",
+   Range = {0.5, 3},
+   Increment = 0.1,
+   Suffix = "x",
+   CurrentValue = 1,
+   Flag = "SliderSize",
+   Callback = function(Value)
+      local player = game.Players.LocalPlayer
+      if not player or not player.Character then return end
+      
+      local humanoid = player.Character:FindFirstChild("Humanoid")
+      if not humanoid then return end
+      
+      local rigType = humanoid.RigType
+      local lastValue = humanoid:GetAttribute("LastSizeValue") or 1
+      humanoid:SetAttribute("LastSizeValue", Value)  -- Track for relative scaling
+      
+      task.spawn(function()
+         task.wait(0.1)  -- Ensure everything is loaded
+         
+         if rigType == Enum.HumanoidRigType.R15 then
+            -- R15: Use body scales (safe, preserves animations/collisions)
+            local scales = {
+               humanoid:FindFirstChild("BodyHeightScale"),
+               humanoid:FindFirstChild("BodyWidthScale"),
+               humanoid:FindFirstChild("BodyDepthScale"),
+               humanoid:FindFirstChild("HeadScale")
+            }
+            
+            if scales[1] then
+               local ratio = Value / lastValue  -- Smooth relative change if needed
+               for _, scale in pairs(scales) do
+                  if scale and scale:IsA("NumberValue") then
+                     scale.Value = Value  -- Direct set works post-load
+                  end
+               end
+               print("R15 size scaled to " .. Value .. "x via body scales")
+            else
+               warn("R15 scales missing! Falling back to description apply.")
+               -- Force via HumanoidDescription (persists better)
+               local desc = humanoid:GetAppliedDescription()
+               desc.HeightScale = Value
+               desc.WidthScale = Value
+               desc.DepthScale = Value
+               desc.HeadScale = Value
+               humanoid:ApplyDescription(desc)
+            end
+            
+         elseif rigType == Enum.HumanoidRigType.R6 then
+            -- R6: Scale individual parts (can break tools/collisions, but works)
+            -- We scale relative to avoid accumulating errors on repeated calls
+            local ratio = Value / lastValue
+            for _, part in pairs(player.Character:GetChildren()) do
+               if part:IsA("BasePart") and part.Name ~= "HumanoidRootPart" then  -- Skip root to avoid flight glitches
+                  part.Size = part.Size * ratio
+                  -- Adjust collision/mass if needed (optional, experimental)
+                  if part:FindFirstChild("OriginalSize") then
+                     part.Size = Vector3.new(
+                        part.OriginalSize.Value.X * Value,
+                        part.OriginalSize.Value.Y * Value,
+                        part.OriginalSize.Value.Z * Value
+                     )
+                  end
+               elseif part:IsA("Accessory") then
+                  local handle = part:FindFirstChild("Handle")
+                  if handle then
+                     handle.Size = handle.Size * ratio
+                  end
+               end
+            end
+            
+            -- Store original sizes on first scale (for absolute scaling)
+            if lastValue == 1 then
+               for _, part in pairs(player.Character:GetDescendants()) do
+                  if part:IsA("BasePart") then
+                     if not part:FindFirstChild("OriginalSize") then
+                        local orig = Instance.new("Vector3Value")
+                        orig.Name = "OriginalSize"
+                        orig.Value = part.Size
+                        orig.Parent = part
+                     end
+                  end
+               end
+            end
+            
+            -- Adjust Humanoid properties to match (hip height for jumping/walking)
+            humanoid.HipHeight = humanoid.HipHeight * ratio
+            print("R6 size scaled to " .. Value .. "x via part resizing")
+         else
+            warn("Unknown rig type: " .. tostring(rigType))
+         end
+         
+         -- Common post-scale fix: Reset collisions or camera if glitchy
+         player.Character:MoveTo(player.Character:GetPivot().Position)
+      end)
+   end,
+})
+
+-- Apply initial value
+SizeSlider:Callback(SizeSlider.CurrentValue)
+
+-- Handle respawns for both R6/R15
+game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
+   local humanoid = char:WaitForChild("Humanoid", 10)
+   if humanoid then
+      humanoid:SetAttribute("LastSizeValue", 1)  -- Reset tracker
+      task.wait(1.5)  -- Wait for full load (scales/parts)
+      
+      -- Re-store originals for R6 if needed
+      if humanoid.RigType == Enum.HumanoidRigType.R6 then
+         for _, part in pairs(char:GetDescendants()) do
+            if part:IsA("BasePart") and not part:FindFirstChild("OriginalSize") then
+               local orig = Instance.new("Vector3Value")
+               orig.Name = "OriginalSize"
+               orig.Value = part.Size
+               orig.Parent = part
+            end
+         end
+      end
+      
+      SizeSlider:Callback(SizeSlider.CurrentValue)
+      
+      -- Reapply on description changes (clothes/hats) for R15
+      if humanoid.RigType == Enum.HumanoidRigType.R15 then
+         humanoid:GetPropertyChangedSignal("HumanoidDescriptionId"):Connect(function()
+            task.wait(0.5)
+            SizeSlider:Callback(SizeSlider.CurrentValue)
+         end)
+      end
+   end
+end)
+
+-- If character already exists
+if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+   SizeSlider:Callback(SizeSlider.CurrentValue)
+end
