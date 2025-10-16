@@ -672,13 +672,13 @@ local SizeSlider = Tab1:CreateSlider({
       
       local rigType = humanoid.RigType
       local lastValue = humanoid:GetAttribute("LastSizeValue") or 1
-      humanoid:SetAttribute("LastSizeValue", Value)  -- Track for relative scaling
+      humanoid:SetAttribute("LastSizeValue", Value)
       
       task.spawn(function()
-         task.wait(0.1)  -- Ensure everything is loaded
+         task.wait(0.1)  -- Ensure loaded
          
          if rigType == Enum.HumanoidRigType.R15 then
-            -- R15: Use body scales (safe, preserves animations/collisions)
+            -- R15: Body scales or description
             local scales = {
                humanoid:FindFirstChild("BodyHeightScale"),
                humanoid:FindFirstChild("BodyWidthScale"),
@@ -687,16 +687,14 @@ local SizeSlider = Tab1:CreateSlider({
             }
             
             if scales[1] then
-               local ratio = Value / lastValue  -- Smooth relative change if needed
                for _, scale in pairs(scales) do
                   if scale and scale:IsA("NumberValue") then
-                     scale.Value = Value  -- Direct set works post-load
+                     scale.Value = Value
                   end
                end
-               print("R15 size scaled to " .. Value .. "x via body scales")
+               print("R15 size set to " .. Value .. "x")
             else
-               warn("R15 scales missing! Falling back to description apply.")
-               -- Force via HumanoidDescription (persists better)
+               warn("R15 scales missing, using description.")
                local desc = humanoid:GetAppliedDescription()
                desc.HeightScale = Value
                desc.WidthScale = Value
@@ -706,80 +704,88 @@ local SizeSlider = Tab1:CreateSlider({
             end
             
          elseif rigType == Enum.HumanoidRigType.R6 then
-            -- R6: Scale individual parts (can break tools/collisions, but works)
-            -- We scale relative to avoid accumulating errors on repeated calls
-            local ratio = Value / lastValue
-            for _, part in pairs(player.Character:GetChildren()) do
-               if part:IsA("BasePart") and part.Name ~= "HumanoidRootPart" then  -- Skip root to avoid flight glitches
-                  part.Size = part.Size * ratio
-                  -- Adjust collision/mass if needed (optional, experimental)
-                  if part:FindFirstChild("OriginalSize") then
-                     part.Size = Vector3.new(
-                        part.OriginalSize.Value.X * Value,
-                        part.OriginalSize.Value.Y * Value,
-                        part.OriginalSize.Value.Z * Value
-                     )
-                  end
-               elseif part:IsA("Accessory") then
-                  local handle = part:FindFirstChild("Handle")
-                  if handle then
-                     handle.Size = handle.Size * ratio
-                  end
-               end
-            end
-            
-            -- Store original sizes on first scale (for absolute scaling)
+            -- R6: Scale parts, joints, attachments
             if lastValue == 1 then
+               -- Store originals on first scale
                for _, part in pairs(player.Character:GetDescendants()) do
                   if part:IsA("BasePart") then
-                     if not part:FindFirstChild("OriginalSize") then
-                        local orig = Instance.new("Vector3Value")
-                        orig.Name = "OriginalSize"
-                        orig.Value = part.Size
-                        orig.Parent = part
-                     end
+                     part:SetAttribute("OriginalSize", part.Size)
+                  elseif part:IsA("Motor6D") or part:IsA("Weld") then  -- Include welds if any
+                     part:SetAttribute("OriginalC0", part.C0)
+                     part:SetAttribute("OriginalC1", part.C1)
+                  elseif part:IsA("Attachment") then
+                     part:SetAttribute("OriginalCFrame", part.CFrame)
+                  end
+               end
+               humanoid:SetAttribute("OriginalHipHeight", humanoid.HipHeight)
+            end
+            
+            -- Apply scaling
+            for _, part in pairs(player.Character:GetDescendants()) do
+               if part:IsA("BasePart") then
+                  local origSize = part:GetAttribute("OriginalSize")
+                  if origSize then
+                     part.Size = origSize * Value
+                  end
+               elseif part:IsA("Motor6D") or part:IsA("Weld") then
+                  local origC0 = part:GetAttribute("OriginalC0")
+                  local origC1 = part:GetAttribute("OriginalC1")
+                  if origC0 then
+                     local pos = origC0.Position * Value
+                     local rot = origC0 - origC0.Position
+                     part.C0 = CFrame.new(pos) * rot
+                  end
+                  if origC1 then
+                     local pos = origC1.Position * Value
+                     local rot = origC1 - origC1.Position
+                     part.C1 = CFrame.new(pos) * rot
+                  end
+               elseif part:IsA("Attachment") then
+                  local origCF = part:GetAttribute("OriginalCFrame")
+                  if origCF then
+                     local pos = origCF.Position * Value
+                     local rot = origCF - origCF.Position
+                     part.CFrame = CFrame.new(pos) * rot
                   end
                end
             end
             
-            -- Adjust Humanoid properties to match (hip height for jumping/walking)
-            humanoid.HipHeight = humanoid.HipHeight * ratio
-            print("R6 size scaled to " .. Value .. "x via part resizing")
+            -- HipHeight
+            local origHip = humanoid:GetAttribute("OriginalHipHeight")
+            if origHip then
+               humanoid.HipHeight = origHip * Value
+            end
+            
+            print("R6 size set to " .. Value .. "x with joints/attachments adjusted")
          else
-            warn("Unknown rig type: " .. tostring(rigType))
+            warn("Unknown rig: " .. tostring(rigType))
          end
          
-         -- Common post-scale fix: Reset collisions or camera if glitchy
-         player.Character:MoveTo(player.Character:GetPivot().Position)
+         -- Post-fix: Reposition to unstuck
+         local char = player.Character
+         char:PivotTo(char:GetPivot() * CFrame.new(0, 0.1, 0))  -- Slight hop
+         task.wait(0.1)
+         char:PivotTo(char:GetPivot() * CFrame.new(0, -0.1, 0))
       end)
    end,
 })
 
--- Apply initial value
+-- Initial apply
 SizeSlider:Callback(SizeSlider.CurrentValue)
 
--- Handle respawns for both R6/R15
+-- Respawn handling
 game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
    local humanoid = char:WaitForChild("Humanoid", 10)
    if humanoid then
-      humanoid:SetAttribute("LastSizeValue", 1)  -- Reset tracker
-      task.wait(1.5)  -- Wait for full load (scales/parts)
+      humanoid:SetAttribute("LastSizeValue", 1)
+      task.wait(1.5)
       
-      -- Re-store originals for R6 if needed
       if humanoid.RigType == Enum.HumanoidRigType.R6 then
-         for _, part in pairs(char:GetDescendants()) do
-            if part:IsA("BasePart") and not part:FindFirstChild("OriginalSize") then
-               local orig = Instance.new("Vector3Value")
-               orig.Name = "OriginalSize"
-               orig.Value = part.Size
-               orig.Parent = part
-            end
-         end
+         -- No need to re-store on respawn; done in callback
       end
       
       SizeSlider:Callback(SizeSlider.CurrentValue)
       
-      -- Reapply on description changes (clothes/hats) for R15
       if humanoid.RigType == Enum.HumanoidRigType.R15 then
          humanoid:GetPropertyChangedSignal("HumanoidDescriptionId"):Connect(function()
             task.wait(0.5)
@@ -789,7 +795,6 @@ game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
    end
 end)
 
--- If character already exists
 if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
    SizeSlider:Callback(SizeSlider.CurrentValue)
 end
