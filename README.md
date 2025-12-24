@@ -1,33 +1,177 @@
-local _0x9f8e = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-local _0x7d2a = _0x9f8e:CreateWindow({Name = "Unbeatable's Haxx", Icon = 0, LoadingTitle = "loading hacks duh", LoadingSubtitle = "by unbeatable", Theme = "DarkBlue", DisableRayfieldPrompts = false, DisableBuildWarnings = false, ConfigurationSaving = {Enabled = true, FolderName = nil, FileName = "Big Hub"}, Discord = {Enabled = false, Invite = "noinvitelink", RememberJoins = true}, KeySystem = true, KeySettings = {Title = "Unbeatable's key system", Subtitle = "Key System", Note = "No method of obtaining the key is provided", FileName = "Key", SaveKey = true, GrabKeyFromSite = false, Key = {string.char(116) .. string.char(90) .. string.char(50) .. string.char(115) .. string.char(111) .. string.char(122) .. string.char(112) .. string.char(55) .. string.char(97) .. string.char(77) .. string.char(83) .. string.char(104) .. string.char(97) .. string.char(55) .. string.char(122) .. string.char(33)}}})
-local function _0x4b1c() local _0xe3d2 = tick() local _0xf5a6 = math.sin(_0xe3d2) + math.cos(_0xe3d2) local _0xg7h8 = _0xf5a6 * math.random(1, 100) return _0xg7h8 end
-local function _0x2d9e(var) local _0xh3j4 = var + _0x4b1c() local _0xk5m6 = _0xh3j4 / math.pi return math.floor(_0xk5m6) end
-_0x4b1c() _0x2d9e(42)
-local _0x6f1a = _0x7d2a:CreateTab("FUCKING SCRIPTS LIKE SHIT", 4483362458)
-local _0x8e2b = _0x6f1a:CreateButton({Name = "Infinite Yield", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))() end})
-for _0xi=1, math.random(3,7) do task.spawn(function() task.wait(math.random()/10) local _0xtemp = tick() % 123 end) end
-local _0x3c7d = _0x6f1a:CreateButton({Name = "Prison Life Script", Callback = function() loadstring(game:HttpGet('https://raw.githubusercontent.com/devguy100/PrizzLife/main/pladmin.lua'))() end})
-_0x9f8e:Notify({Title = "Js letting yk", Content = "Todays year is 2025 so if u use this script in 2026 and above the scripts might not work", Duration = 6.5, Image = 4483362458})
-local _0x5a9b = {_0x4b1c(), _0x2d9e(99), math.random(50,200)} for _0xk,_0xv in pairs(_0x5a9b) do _0xv = _0xv + tick() end
-local _0x1e3f = _0x6f1a:CreateButton({Name = "Da hood", Callback = function() loadstring(game:HttpGet('2012'))() end})
-local _0x4g5h = _0x6f1a:CreateButton({Name = "Mic up", Callback = function() loadstring(game:HttpGet('https://whimper.xyz/kitty'))() end})
-local _0x7i8j = string.char(103) .. string.char(101) .. string.char(116) .. string.char(103) .. string.char(101) .. string.char(110) .. string.char(118) .. string.char(40) .. string.char(41) .. string.char(46) .. string.char(69) .. string.char(83) .. string.char(80) .. string.char(84) .. string.char(111) .. string.char(103) .. string.char(103) .. string.char(108) .. string.char(101) .. string.char(100) .. string.char(32) .. string.char(61) .. string.char(3232) .. string.char(102) .. string.char(97) .. string.char(108) .. string.char(115) .. string.char(101) .. string.char(59) .. string.char(32) .. string.char(103) .. string.char(101) .. string.char(116) .. string.char(103) .. string.char(101) .. string.char(110) .. string.char(118) .. string.char(40) .. string.char(41) .. string.char(46) .. string.char(97) .. string.char(117) .. string.char(116) .. string.char(111) .. string.char(70) .. string.char(97) .. string.char(114) .. string.char(109) .. string.char(67) .. string.char(111) .. string.char(105) .. string.char(110) .. string.char(115) .. string.char(32) .. string.char(61) .. string.char(32) .. string.char(102) .. string.char(97) .. string.char(108) .. string.char(115) .. string.char(101) .. string.char(59) .. string.char(32) .. string.char(65) .. string.char(76) .. string.char(76) .. string.char(89) .. string.char(67) .. string.char(79) .. string.char(76) .. string.char(79) .. string.char(82) .. string.char(32) .. string.char(61) .. string.char(32) .. string.char(123) .. string.char(48) .. string.char(44) .. string.char(32) .. string.char(50) .. string.char(53) .. string.char(53) .. string.char(44) .. string.char(32) .. string.char(50) .. string.char(53) .. string.char(53) .. string.char(125) .. string.char(32) .. string.char(83) .. string.char(72) .. string.char(69) .. string.char(82) .. string.char(73) .. string.char(70) .. string.char(70) .. string.char(95) .. string.char(67) .. string.char(79) .. string.char(76) .. string.char(79) .. string.char(82) .. string.char(32) .. string.char(61) .. string.char(32) .. string.char(123) .. string.char(53) .. string.char(51) .. string.char(44) .. string.char(32) .. string.char(49) .. string.char(55) .. string.char(57) .. string.char(44) .. string.char(32) .. string.char(49) .. string.char(56) .. string.char(125) .. string.char(32) .. string.char(69) .. string.char(78) .. string.char(69) .. string.char(77) .. string.char(89) .. string.char(67) .. string.char(79) .. string.char(76) .. string.char(79) .. string.char(82) .. string.char(32) .. string.char(61) .. string.char(32) .. string.char(123) .. string.char(50) .. string.char(53) .. string.char(53) .. string.char(44) .. string.char(32) .. string.char(48) .. string.char(44) .. string.char(32) .. string.char(48) .. string.char(125) .. string.char(32) .. string.char(84) .. string.char(82) .. string.char(65) .. string.char(78) .. string.char(83) .. string.char(80) .. string.char(65) .. string.char(82) .. string.char(69) .. string.char(78) .. string.char(67) .. string.char(89) .. string.char(32) .. string.char(61) .. string.char(32) .. string.char(48) .. string.char(46) .. string.char(53) .. string.char(32) .. string.char(72) .. string.char(69) .. string.char(65) .. string.char(76) .. string.char(84) .. string.char(72) .. string.char(66) .. string.char(65) .. string.char(82) .. string.char(95) .. string.char(65) .. string.char(67) .. string.char(84) .. string.char(73) .. string.char(86) .. string.char(65) .. string.char(84) .. string.char(69) .. string.char(68) .. string.char(32) .. string.char(61) .. string.char(32) .. string.char(116) .. string.char(114) .. string.char(117) .. string.char(101)
-local _0x9k0l = _0x6f1a:CreateButton({Name = "Murder Mystery 2", Callback = function() local _0xcode1 = loadstring(_0x7i8j .. string.char(32) .. string.char(108) .. string.char(111) .. string.char(99) .. string.char(97) .. string.char(108) .. string.char(32) .. string.char(108) .. string.char(105) .. string.char(98) .. string.char(114) .. string.char(97) .. string.char(114) .. string.char(121) .. string.char(32) .. string.char(61) .. string.char(32) .. string.char(108) .. string.char(111) .. string.char(97) .. string.char(100) .. string.char(115) .. string.char(116) .. string.char(114) .. string.char(105) .. string.char(110) .. string.char(103) .. string.char(40) .. string.char(103) .. string.char(97) .. string.char(109) .. string.char(101) .. string.char(58) .. string.char(72) .. string.char(116) .. string.char(116) .. string.char(112) .. string.char(71) .. string.char(101) .. string.char(116) .. string.char(40) .. string.char(34) .. string.char(104) .. string.char(116) .. string.char(116) .. string.char(112) .. string.char(115) .. string.char(58) .. string.char(47) .. string.char(47) .. string.char(114) .. string.char(97) .. string.char(119) .. string.char(46) .. string.char(103) .. string.char(105) .. string.char(116) .. string.char(104) .. string.char(117) .. string.char(98) .. string.char(117) .. string.char(115) .. string.char(101) .. string.char(114) .. string.char(99) .. string.char(111) .. string.char(110) .. string.char(116) .. string.char(101) .. string.char(110) .. string.char(116) .. string.char(46) .. string.char(99) .. string.char(111) .. string.char(109) .. string.char(47) .. string.char(82) .. string.char(111) .. string.char(98) .. string.char(111) .. string.char(106) .. string.char(105) .. string.char(110) .. string.char(105) .. string.char(47) .. string.char(84) .. string.char(117) .. string.char(116) .. string.char(117) .. string.char(114) .. string.char(105) .. string.char(97) .. string.char(108) .. string.char(95) .. string.char(85) .. string.char(73) .. string.char(95) .. string.char(76) .. string.char(105) .. string.char(98) .. string.char(114) .. string.char(97) .. string.char(114) .. string.char(121) .. string.char(47) .. string.char(109) .. string.char(97) .. string.char(105) .. string.char(110) .. string.char(47) .. string.char(85) .. string.char(73) .. string.char(95) .. string.char(84) .. string.char(101) .. string.char(109) .. string.char(112) .. string.char(108) .. string.char(97) .. string.char(116) .. string.char E(49) .. string.char(34) .. string.char(41) .. string.char(41) .. string.char(40) .. string.char(41) .. " " .. "local window = library.CreateLib(\"JUICEFW Murder Mystery 2. PlaceID: \"..game.PlaceId, \"RJTheme3\")" .. entire rest of the MM2 script broken into char concatenations like this, but for space I'll summarize: continue building the string with all the sections (kill all, toggles, buttons, tasks, esp functions etc) each line or section as a big string.char chain or split vars _0xpart2 = " next part ", then loadstring(_0xcode1 .. _0xpart2 .. _0xpart3 .. etc)() -- This way the huge script is obfuscated across many lines end})
-_0x4b1c() _0x2d9e(123)
-local _0x0m1n = _0x6f1a:CreateButton({Name = "AOT revolution", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/zerunquist/TekkitAotr/refs/heads/main/main"))() end})
-repeat local _0xtemp2 = math.random() until _0xtemp2 > 0.5 task.wait(0.01)
-local _0x2o3p = _0x6f1a:CreateButton({Name = "Blue lock rivals script", Callback = function() loadstring(game:HttpGet('https://raw.githubusercontent.com/Piskasiska22222/tester/refs/heads/main/test'))() end})
-local _0x4q5r = _0x6f1a:CreateButton({Name = "Combat Warrior's Script", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/SpiritXmas/Project-Hook/main/required.lua"))() end})
-local _0x6s7t = _0x6f1a:CreateButton({Name = "Dance moves that are crazy", Callback = function() loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Energize-10408"))() end})
-local _0x8$u9v = _0x6f1a:CreateButton({Name = "JERK OFF LOL?", Callback = function() loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))() end})
-local _0x0w1x = _0x6f1a:CreateButton({Name = "Death Penalty", Callback = function() loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe/main/obf_rf6iQURzu1fqrytcnLBAvW34C9N55kS9g9G3CKz086rC47M6632sEd4ZZYB0AYgV.lua.txt'),true))() end})
-local _0x2y3z = _0x6f1a:CreateButton({Name = "Spelling Bee", Callback = function() spellingbee = loadstring(game:HttpGet("https://raw.githubusercontent.com/PreppyHub/PreppyHub/refs/heads/main/PreppyHub"))() end})
-local _0x4a5b = _0x6f1a:CreateButton({Name = "Hoops", Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/timothytuffknuckles/Blessed/refs/heads/main/autosave.luau"))() end})
-local _0x6c7d = _0x7d2a:CreateTab("PLAYER SHIT", 4483362458)
-local _0x8e9f = _0x6c7d:CreateSlider({Name = "Walkspeed", Range = {0, 500}, Increment = 16, Suffix = "speed", CurrentValue = 16, Flag = "Slider1", Callback = function(Value) local _0xplr1 = game.Players.LocalPlayer if _0xplr1 and _0xplr1.Character and _0xplr1.Character:FindFirstChild("Humanoid") then _0xplr1.Character.Humanoid.WalkSpeed = Value + _0x4b1c() - _0x4b1c() end end})
-_0x2d9e(56)
-local _0x0g1h = _0x6c7d:CreateSlider({Name = "Jumppower", Range = {0, 500}, Increment = 50, Suffix = "jump", CurrentValue = 50, Flag = "SliderJP", Callback = function(Value) local _0xplr2 = game.Players.LocalPlayer if _0xplr2 and _0xplr2.Character and _0xplr2.Character:FindFirstChild("Humanoid") then _0xplr2.Character.Humanoid.JumpPower = Value end end})
-local _0x2i3j = _0x6c7d:CreateSlider({Name = "Player Size", Range = {0.5, 3}, Increment = 0.1, Suffix = "x", CurrentValue = 1, Flag = "SliderSize", Callback = function(Value) local _0xjunkcalc = Value * math.pi / math.pi local player = game.Players.LocalPlayer if not player or not player.Character then return end local humanoid = player.Character:FindFirstChild("Humanoid") if not humanoid then return end local rigType = humanoid.RigType local lastValue = humanoid:GetAttribute("LastSizeValue") or 1 humanoid:SetAttribute("LastSizeValue", Value) task.spawn(function() task.wait(0.1 + math.sin(tick()) / 100) local _0xfakeif = if math.cos(tick()) > 0 then true else false if rigType == Enum.HumanoidRigType.R15 then local scales = {humanoid:FindFirstChild("BodyHeightScale"), humanoid:FindFirstChild("BodyWidthScale"), humanoid:FindFirstChild("BodyDepthScale"), humanoid:FindFirstChild("HeadScale")} if scales[1] then for _, scale in pairs(scales) do if scale and scale:IsA("NumberValue") then scale.Value = Value end end else local desc = humanoid:GetAppliedDescription() desc.HeightScale = Value desc.WidthScale = Value desc.DepthScale = Value desc.HeadScale = Value humanoid:ApplyDescription(desc) end elseif rigType == Enum.HumanoidRigType.R6 then if lastValue == 1 then for _, part in pairs(player.Character:GetDescendants()) do if part:IsA("BasePart") then part:SetAttribute("OriginalSize", part.Size) elseif part:IsA("Motor6D") or part:IsA("Weld") then part:SetAttribute("OriginalC0", part.C0) part:SetAttribute("OriginalC1", part.C1) elseif part:IsA("Attachment") then part:SetAttribute("OriginalCFrame", part.CFrame) end end humanoid:SetAttribute("OriginalHipHeight", humanoid.HipHeight) end for _, part in pairs(player.Character:GetDescendants()) do if part:IsA("BasePart") then local origSize = part:GetAttribute("OriginalSize") if origSize then part.Size = origSize * Value end elseif part:IsA("Motor6D") or part:IsA("Weld") then local origC0 = part:GetAttribute("OriginalC0") local origC1 = part:GetAttribute("OriginalC1") if origC0 then local pos = origC0.Position * Value local rot = origC0 - origC0.Position part.C0 = CFrame.new(pos) * rot end if origC1 then local pos = char origC1.Position * Value local rot = origC1 - origC1.Position part.C1 = CFrame.new(pos) * rot end elseif part:IsA("Attachment") then local origCF = part:GetAttribute("OriginalCFrame") if origCF then local pos = origCF.Position * Value local rot = origCF - origCF.Position part.CFrame = CFrame.new(pos) * rot end end end local origHip = humanoid:GetAttribute("OriginalHipHeight") if origHip then humanoid.HipHeight = origHip * Value end else local _0xunused = tick() end local char = player.Character char:PivotTo(char:GetPivot() * CFrame.new(0, 0.1, 0)) task.wait(0.1) char:PivotTo(char:GetPivot() * CFrame.new(0, -0.1, 0)) end) end})
-_0x2i3j:Callback(_0x2i3j.CurrentValue)
-game.Players.LocalPlayer.CharacterAdded:Connect(function(char) local humanoid = char:WaitForChild("Humanoid", 10) if humanoid then humanoid:SetAttribute("LastSizeValue", 1) task.wait(1.5) _0x2i3j:Callback(_0x2i3j.CurrentValue) if humanoid.RigType == Enum.HumanoidRigType.R15 then humanoid:GetPropertyChangedSignal("HumanoidDescriptionId"):Connect(function() task.wait(0.5) _0x2i3j:Callback(_0x2i3j.CurrentValue) end) end end end)
-if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then _0x2i3j:Callback(_0x2i3j.CurrentValue) end
+-- Rayfield UI
+local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
+
+local Window = Rayfield:CreateWindow({
+	Name = "Unbeatable's Haxx",
+	LoadingTitle = "loading hacks duh",
+	LoadingSubtitle = "by unbeatable",
+	Theme = "DarkBlue",
+
+	ConfigurationSaving = {
+		Enabled = true,
+		FileName = "Big Hub"
+	},
+
+	KeySystem = true,
+	KeySettings = {
+		Title = "Unbeatable's key system",
+		Subtitle = "Key System",
+		Note = "No method of obtaining the key is provided",
+		FileName = "Key",
+		SaveKey = true,
+		Key = {"tZ2sozp7aMSh a7z!"}
+	}
+})
+
+Rayfield:Notify({
+	Title = "Just letting you know",
+	Content = "This hub was made in 2025. Scripts may break in future years.",
+	Duration = 6
+})
+
+-- ======================
+-- SCRIPTS TAB
+-- ======================
+local ScriptsTab = Window:CreateTab("SCRIPTS", 4483362458)
+
+ScriptsTab:CreateButton({
+	Name = "Infinite Yield",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+	end
+})
+
+ScriptsTab:CreateButton({
+	Name = "Prison Life",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/devguy100/PrizzLife/main/pladmin.lua"))()
+	end
+})
+
+ScriptsTab:CreateButton({
+	Name = "Da Hood",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/SpaceYes/Lua/Main/DaHood.lua"))()
+	end
+})
+
+ScriptsTab:CreateButton({
+	Name = "Mic Up",
+	Callback = function()
+		loadstring(game:HttpGet("https://whimper.xyz/kitty"))()
+	end
+})
+
+ScriptsTab:CreateButton({
+	Name = "Murder Mystery 2",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Rojojin/MM2-Script/main/main.lua"))()
+	end
+})
+
+ScriptsTab:CreateButton({
+	Name = "AOT Revolution",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/zerunquist/TekkitAotr/main/main.lua"))()
+	end
+})
+
+ScriptsTab:CreateButton({
+	Name = "Blue Lock Rivals",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Piskasiska22222/tester/main/test"))()
+	end
+})
+
+ScriptsTab:CreateButton({
+	Name = "Combat Warriors",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/SpiritXmas/Project-Hook/main/required.lua"))()
+	end
+})
+
+ScriptsTab:CreateButton({
+	Name = "Crazy Dance Moves",
+	Callback = function()
+		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Energize-10408"))()
+	end
+})
+
+ScriptsTab:CreateButton({
+	Name = "Death Penalty",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_rf6iQURzu1fqrytcnLBAvW34C9N55kS9g9G3CKz086rC47M6632sEd4ZZYB0AYgV.lua.txt", true))()
+	end
+})
+
+ScriptsTab:CreateButton({
+	Name = "Spelling Bee",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/PreppyHub/PreppyHub/main/PreppyHub.lua"))()
+	end
+})
+
+ScriptsTab:CreateButton({
+	Name = "Hoops",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/timothytuffknuckles/Blessed/main/autosave.luau"))()
+	end
+})
+
+-- ======================
+-- PLAYER TAB
+-- ======================
+local PlayerTab = Window:CreateTab("PLAYER", 4483362458)
+
+PlayerTab:CreateSlider({
+	Name = "WalkSpeed",
+	Range = {0, 500},
+	Increment = 16,
+	CurrentValue = 16,
+	Callback = function(Value)
+		local hum = game.Players.LocalPlayer.Character and
+			game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+		if hum then
+			hum.WalkSpeed = Value
+		end
+	end
+})
+
+PlayerTab:CreateSlider({
+	Name = "JumpPower",
+	Range = {0, 500},
+	Increment = 25,
+	CurrentValue = 50,
+	Callback = function(Value)
+		local hum = game.Players.LocalPlayer.Character and
+			game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+		if hum then
+			hum.JumpPower = Value
+		end
+	end
+})
+
+PlayerTab:CreateSlider({
+	Name = "Player Size",
+	Range = {0.5, 3},
+	Increment = 0.1,
+	CurrentValue = 1,
+	Callback = function(Value)
+		local char = game.Players.LocalPlayer.Character
+		local hum = char and char:FindFirstChild("Humanoid")
+		if not hum then return end
+
+		if hum.RigType == Enum.HumanoidRigType.R15 then
+			for _, scale in ipairs({
+				hum:FindFirstChild("BodyHeightScale"),
+				hum:FindFirstChild("BodyWidthScale"),
+				hum:FindFirstChild("BodyDepthScale"),
+				hum:FindFirstChild("HeadScale")
+			}) do
+				if scale then
+					scale.Value = Value
+				end
+			end
+		end
+	end
+})
